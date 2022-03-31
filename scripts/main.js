@@ -13,9 +13,12 @@
 
 
 let submit = document.querySelector("form");
+let deleteAll = document.querySelector("#borrarTodo");
 let inputText = document.querySelector("#input-text");
 let color = document.querySelector("#color");
 let checkBox = document.querySelector("#is-poster")
+let posterColor = document.querySelector("#poster-color")
+let posterBg = document.querySelector(".mensaje.poster")
 
 function renderDiv (id) {
     const wallDiv = document.querySelector(id)
@@ -28,7 +31,12 @@ function renderDiv (id) {
     <span class="close">&times;</span>
     <p>${inputValue}</p>`
 
-    createDiv.style.color = color.value
+    console.log({createDiv});
+    if (createDiv.className == "mensaje poster") {
+        createDiv.style.backgroundColor = posterColor.value
+    }
+    createDiv.style.color = color.value;
+    
 
     wallDiv.appendChild(createDiv)
 }
@@ -41,6 +49,15 @@ submit.addEventListener("submit", (e) => {
 })
 
 
+deleteAll.addEventListener("click", (e) => {
+    e.preventDefault()
+    deleteAllCards("#wall")
+})
+
+function deleteAllCards(id) {
+    const wallDiv = document.querySelector(id)
+    wallDiv.innerHTML = ""
+}
 
 
 let delButton = document.querySelector("#wall");

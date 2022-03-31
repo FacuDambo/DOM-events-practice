@@ -112,7 +112,7 @@ h1 {
 #alta-graffiti label {
   text-align: center;
 }
-#alta-graffiti *[type="submit"] {
+#alta-graffiti *[type="submit"], #alta-graffiti *[type="button"] {
   padding: 0.5rem 1rem;
   margin: auto;
 }
